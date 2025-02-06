@@ -1,10 +1,11 @@
-import { FloatingNavDemo } from "@/components/Navbar";
+import { NavbarDemo } from "@/components/Navbar";
+
 
 
 export default function Home() {
   return (
     <div className="">
-     <FloatingNavDemo/>
+
      <div id="home" className="h-screen">
       hello
      </div>
