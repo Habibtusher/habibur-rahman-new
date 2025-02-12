@@ -11,18 +11,21 @@ import {
 } from "@tabler/icons-react";
 export const Blogs = () => {
   return (
-    <BentoGrid className="max-w-4xl mx-auto">
-      {items.map((item, i) => (
-        <BentoGridItem
-          key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-          icon={item.icon}
-          className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-        />
-      ))}
-    </BentoGrid>
+    <div className="pb-10">
+      <h1 className="text-center py-5 text-2xl">Blogs</h1>
+      <BentoGrid className="max-w-4xl mx-auto">
+        {items.map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            icon={item.icon}
+            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+          />
+        ))}
+      </BentoGrid>
+    </div>
   );
 };
 const Skeleton = () => (
