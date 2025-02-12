@@ -1,17 +1,11 @@
-import { NavbarDemo } from "@/components/Navbar";
-
-
+import { HeroSection } from "./(home)/hero/HeroSection";
+import { Blogs } from "./blogs/Blogs";
 
 export default function Home() {
   return (
     <div className="">
-
-     <div id="home" className="h-screen">
-      hello
-     </div>
-     <div className="h-screen">
-      hello 2
-     </div>
+      <HeroSection />
+      <Blogs />
     </div>
   );
 }

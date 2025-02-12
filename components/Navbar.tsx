@@ -1,22 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { useTheme } from "next-themes";
 
 export function NavbarDemo() {
   return (
     <div className="relative w-full flex items-center justify-center">
       <Navbar className="top-2" />
-      <p className="text-black dark:text-white">
-        The Navbar will show on top of the page
-      </p>
     </div>
   );
 }
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
@@ -69,6 +75,12 @@ function Navbar({ className }: { className?: string }) {
           item="Contact"
           href="/contact"
         />
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className=" transition"
+        >
+          {theme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+        </button>
       </Menu>
     </div>
   );
